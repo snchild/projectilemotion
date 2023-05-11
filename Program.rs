@@ -9,22 +9,21 @@ fn main() {
     let theta: f32 = 3.14159265/6.0; //note that angles should be in radians... add in pi itself another time
     let v0 = 20.0;
     let mut distance = -1.0; // the mut tells the program that its value will change
+    let mut flight_time = -1.0; //I use the -1 value as a way to check whether the variable is reassigned later
 
     //calculate the farthest distance if there's no ceiling
-    distance = calculate_distance_no_ceiling(g, theta, v0); //wip
+    distance = calculate_distance_no_ceiling(g, theta, v0);
+
     //calculate the farthest distance if it skims the ceiling
     //distance = calculate_distance_with_ceiling(g, height, theta, v0); //wip
 
     //calculate flight time
+    flight_time = calculate_flight_time(distance, theta, v0);
     //stretch goal: plot the path if possible
 
-    //for debugging purposes: print out all variables
-    println!("height = {height}");
-    println!("theta = {theta}");
-    println!("cos(th) = ");
-    println!("{}", theta.cos());
-    println!("V0 = {v0}");
+    //for debugging purposes: print out variables
     println!("distance = {distance}");
+    println!("time = {flight_time}");
     
     // testing sqrt()
     println!("square root of 9: ");
@@ -63,10 +62,11 @@ fn calculate_distance_with_ceiling(g: f32, y: f32, th: f32, v: f32) -> f32 {
     return 5.4 //replace with calculated value later
 }
 
-fn calculate_flight_time() {
+fn calculate_flight_time(xf: f32, th: f32, v: f32) -> f32 {
     println!("running calculate_flight_time");
-    //calculate the flight time here
-    //return flight time
+    //equation from xf = xi + v0 * cos(theta) * t
+    let tf = xf / (v * th.cos() );
+    return tf
 }
 
 fn calculate_path() {
