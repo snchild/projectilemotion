@@ -14,7 +14,7 @@
 
 I used Visual Studio and Rust to develop this software. 
 
-The equations that I used to calculate the values in this code are from the kinematic equations, namely x_f = x_i + v_i t + 1/2 a t^2.
+The equations that I used to calculate the values in this code are from the kinematic equations, namely $x_f = x_i + v_i t + 1/2 a t^2$.
 
 # Useful Websites
 
