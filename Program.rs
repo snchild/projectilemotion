@@ -1,6 +1,5 @@
-//include: variables, expressions, conditionals, loops, functions
+//include: conditionals, loops
 fn main() {
-    println!("running main");
     //g is the acceleration due to gravity
     let g = 9.81; //units: m/s^2
     //prompt the user for a ceiling height and a lauch angle (and v0?)
@@ -20,10 +19,12 @@ fn main() {
     //calculate flight time
     flight_time = calculate_flight_time(distance, theta, v0);
     //stretch goal: plot the path if possible
+    let x_points = calculate_x_path(theta, v0, flight_time);
 
     //for debugging purposes: print out variables
     println!("distance = {distance}");
     println!("time = {flight_time}");
+    println!("xpoints = {:?}", x_points);
     
     // testing sqrt()
     println!("square root of 9: ");
@@ -33,8 +34,6 @@ fn main() {
 }
 
 fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
-    println!("running calculate_distance_no_ceiling");
-    //calculate the farthest distance here
     // the equation is explained in the README *****add it to the README********
     let angle = 2.0 * th;
     let xf = v * v * angle.sin() / g;
@@ -63,16 +62,28 @@ fn calculate_distance_with_ceiling(g: f32, y: f32, th: f32, v: f32) -> f32 {
 }
 
 fn calculate_flight_time(xf: f32, th: f32, v: f32) -> f32 {
-    println!("running calculate_flight_time");
     //equation from xf = xi + v0 * cos(theta) * t
     let tf = xf / (v * th.cos() );
     return tf
 }
 
-fn calculate_path() {
+fn calculate_x_path(th: f32, v: f32, tf: f32) -> [f32;21] { //20 time data points
+    //the values -1 are used specifically because that value wouldn't physically make sense
+    let mut x_points: [f32;21] = [-1.0; 21];
+    let mut t = -1.0;
+
+    //notation for range is [starting point(inclusive)]..[ending point(exclusive)]
+    for i in 0..21 {  
+        t = (i as f32 * tf) / 20.0; // the "as f32" converts the integer to a float so it can be multiplied to another float        
+        x_points[i] = v * th.cos() * t //x = v0 * cos(theta) * t
+    }
+    return x_points
+}
+
+fn calculate_y_path() {
     println!("running calculate_path");
     //calculate the path
-    //return two lists: the x path and the y path
+    //return a list: the y path
 }
 
 fn plot_path() {

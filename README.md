@@ -14,14 +14,14 @@
 
 I used Visual Studio and Rust to develop this software. 
 
-The equations that I used to calculate the values in this code are from the kinematic equations, namely $x_f = x_i + v_i t + 1/2 a t^2$.
+The equations that I used to calculate the values in this code are from the kinematic equations, namely $x_f = x_i + v_i t + \frac{1}{2} a t^2$.
 
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
 
 - [The Rust Programming Language](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html)
-- [Web Site Name](http://url.link.goes.here)
+- [Rust-Lang](https://doc.rust-lang.org/std/primitive.array.html)
 
 # Future Work
 
