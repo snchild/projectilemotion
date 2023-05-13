@@ -20,11 +20,13 @@ fn main() {
     flight_time = calculate_flight_time(distance, theta, v0);
     //stretch goal: plot the path if possible
     let x_points = calculate_x_path(theta, v0, flight_time);
+    let y_points = calculate_y_path(theta, v0, flight_time, g);
 
     //for debugging purposes: print out variables
     println!("distance = {distance}");
     println!("time = {flight_time}");
     println!("xpoints = {:?}", x_points);
+    println!("ypoints = {:?}", y_points);
     
     // testing sqrt()
     println!("square root of 9: ");
@@ -80,10 +82,17 @@ fn calculate_x_path(th: f32, v: f32, tf: f32) -> [f32;21] { //20 time data point
     return x_points
 }
 
-fn calculate_y_path() {
-    println!("running calculate_path");
-    //calculate the path
-    //return a list: the y path
+fn calculate_y_path(th: f32, v: f32, tf: f32, g: f32) -> [f32;21] {
+    //the values -1 are used specifically because that value wouldn't physically make sense
+    let mut y_points: [f32;21] = [-1.0; 21];
+    let mut t = -1.0;
+
+    //notation for range is [starting point(inclusive)]..[ending point(exclusive)]
+    for i in 0..21 {  
+        t = (i as f32 * tf) / 20.0;        
+        y_points[i] = v * th.sin() * t  - 0.5 * g * t * t //y = v0 * sin(theta) * t - 1/2 g t^2
+    }
+    return y_points
 }
 
 fn plot_path() {

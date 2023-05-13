@@ -22,6 +22,9 @@ The equations that I used to calculate the values in this code are from the kine
 
 - [The Rust Programming Language](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html)
 - [Rust-Lang](https://doc.rust-lang.org/std/primitive.array.html)
+- [Rust By Example](https://doc.rust-lang.org/rust-by-example/flow_control/for.html)
+- [Stack Overflow](https://stackoverflow.com/questions/48634335/how-do-i-multiply-an-integer-and-a-floating-value-together-and-display-the-resul)
+
 
 # Future Work
 
