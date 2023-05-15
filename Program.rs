@@ -6,7 +6,7 @@ fn main() {
     let g = 9.81; //units: m/s^2
     //prompt the user for a ceiling height, launch angle, and launch velocity
     println!("Please enter a height in meters: ");
-    let height = convert_to_float();
+    let height = convert_to_float(); //not needed unless I incorporate ceiling height
     println!("Please enter an angle in degrees: ");
     let degrees = convert_to_float();
     let theta: f32 = degrees * 3.14159265 / 180.0; //converts the degrees into radians
@@ -28,9 +28,10 @@ fn main() {
     let x_points = calculate_x_path(theta, v0, flight_time);
     let y_points = calculate_y_path(theta, v0, flight_time, g);
 
+    println!("The projectile traveled {} meters across the room in {} seconds. ", distance, flight_time);
     //for debugging purposes: print out variables
-    println!("xpoints = {:?}", x_points);
-    println!("ypoints = {:?}", y_points);
+    //println!("xpoints = {:?}", x_points);
+    //println!("ypoints = {:?}", y_points);
 }
 fn convert_to_float() -> f32 {
     let mut input_text = String::new();
@@ -48,7 +49,7 @@ fn convert_to_float() -> f32 {
     return value
 }
 fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
-    // the equation is explained in the README *****add it to the README********
+    // the equation is explained in the README file
     let angle = 2.0 * th;
     let xf = v * v * angle.sin() / g;
     
