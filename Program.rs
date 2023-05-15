@@ -1,8 +1,16 @@
-//include: conditionals, loops
+//include: conditionals
+use std::io; //lets us use input/output capabilities
+
 fn main() {
     //g is the acceleration due to gravity
     let g = 9.81; //units: m/s^2
     //prompt the user for a ceiling height and a lauch angle (and v0?)
+    let mut guess = String::new(); //needs to be this type for read_line
+    println!("Enter your guess: ");
+    io::stdin()
+        .read_line(&mut guess);
+    println!("guess: {guess}");
+
     //for now, let's just give them values
     let height = 30.0;
     let theta: f32 = 3.14159265/6.0; //note that angles should be in radians... add in pi itself another time
@@ -23,16 +31,14 @@ fn main() {
     let y_points = calculate_y_path(theta, v0, flight_time, g);
 
     //for debugging purposes: print out variables
-    println!("distance = {distance}");
-    println!("time = {flight_time}");
     println!("xpoints = {:?}", x_points);
     println!("ypoints = {:?}", y_points);
     
     // testing sqrt()
-    println!("square root of 9: ");
-    let testing: f32 = 9.0;
-    println!("{}", 9.0_f32.sqrt());
-    println!("{}", testing.sqrt());
+    //println!("square root of 9: ");
+    //let testing: f32 = 9.0;
+    //println!("{}", 9.0_f32.sqrt());
+    //println!("{}", testing.sqrt());
 }
 
 fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
