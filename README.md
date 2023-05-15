@@ -14,7 +14,8 @@
 
 I used Visual Studio and Rust to develop this software. 
 
-The equations that I used to calculate the values in this code are from the kinematic equations, namely $x_f = x_i + v_i t + \frac{1}{2} a t^2$.
+The equations that I used to calculate the values in this code are from the kinematic equations, namely $$x_f = x_i + v_i t + \frac{1}{2} a t^2$$ I have decided that the origin will be at the launch position, so the equation of motion for x is $x_f = v_0 cos(\theta) t$ and the equation of motion for y is $y_f = v_0 sin(\theta) t - \frac{1}{2} g t^2$. 
+If we combine these two equations of motion and solve for $x_f$, the horizontal distance the projectile travels, the resulting equation is $x_f = \frac{v^2 sin(2\theta)}{g}$
 
 # Useful Websites
 
