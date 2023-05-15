@@ -5,16 +5,17 @@ fn main() {
     //g is the acceleration due to gravity
     let g = 9.81; //units: m/s^2
     //prompt the user for a ceiling height and a lauch angle (and v0?)
-    let mut guess = String::new(); //needs to be this type for read_line
-    println!("Enter your guess: ");
-    io::stdin()
-        .read_line(&mut guess);
-    println!("guess: {guess}");
-
+    println!("Please enter a height in meters: ");
+    let height = convert_to_float();
+    println!("Please enter an angle in degrees: ");
+    let degrees = convert_to_float();
+    let theta: f32 = degrees * 3.14159265 / 180.0; //converts the degrees into radians
+    println!("Please enter a launching velocity in meters/second: ");
+    let v0 = convert_to_float();
     //for now, let's just give them values
-    let height = 30.0;
-    let theta: f32 = 3.14159265/6.0; //note that angles should be in radians... add in pi itself another time
-    let v0 = 20.0;
+    //let height = 30.0;
+    //let theta: f32 = 3.14159265/6.0; //note that angles should be in radians... add in pi itself another time
+    //let v0 = 20.0;
     let mut distance = -1.0; // the mut tells the program that its value will change
     let mut flight_time = -1.0; //I use the -1 value as a way to check whether the variable is reassigned later
 
@@ -31,6 +32,7 @@ fn main() {
     let y_points = calculate_y_path(theta, v0, flight_time, g);
 
     //for debugging purposes: print out variables
+    println!("height: {}", height);
     println!("xpoints = {:?}", x_points);
     println!("ypoints = {:?}", y_points);
     
@@ -40,13 +42,27 @@ fn main() {
     //println!("{}", 9.0_f32.sqrt());
     //println!("{}", testing.sqrt());
 }
+fn convert_to_float() -> f32 {
+    let mut input_text = String::new();
+    //reads the inputed text as a String
+    io::stdin()
+        .read_line(&mut input_text)
+        .expect("failed to read from stdin");
 
+    //converts the String to a float
+    let trimmed = input_text.trim();
+    let value: f32 = match trimmed.parse::<f32>() {
+        Ok(i) => i,
+        Err(..) => -1.0,
+    };
+    return value
+}
 fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
     // the equation is explained in the README *****add it to the README********
     let angle = 2.0 * th;
     let xf = v * v * angle.sin() / g;
     
-    println!("angle = {angle}");
+    //println!("angle = {angle}");
     println!("distance = {xf}");
     return xf 
 }

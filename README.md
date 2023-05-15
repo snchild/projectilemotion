@@ -24,7 +24,7 @@ The equations that I used to calculate the values in this code are from the kine
 - [Rust-Lang](https://doc.rust-lang.org/std/primitive.array.html)
 - [Rust By Example](https://doc.rust-lang.org/rust-by-example/flow_control/for.html)
 - [Stack Overflow](https://stackoverflow.com/questions/48634335/how-do-i-multiply-an-integer-and-a-floating-value-together-and-display-the-resul)
-
+- [Stack Overflow](https://stackoverflow.com/questions/30355185/how-to-read-an-integer-input-from-the-user-in-rust-1-0/30355925#30355925)
 
 # Future Work
 
