@@ -1,21 +1,22 @@
 //include: conditionals
 use std::io; //lets us use input/output capabilities
+use plotters::prelude::*; //lets us make plots
 
 fn main() {
     //g is the acceleration due to gravity
     let g = 9.81; //units: m/s^2
     //prompt the user for a ceiling height, launch angle, and launch velocity
-    println!("Please enter a height in meters: ");
+    /*println!("Please enter a height in meters: ");
     let height = convert_to_float(); //not needed unless I incorporate ceiling height
     println!("Please enter an angle in degrees: ");
     let degrees = convert_to_float();
     let theta: f32 = degrees * 3.14159265 / 180.0; //converts the degrees into radians
     println!("Please enter a launching velocity in meters/second: ");
-    let v0 = convert_to_float();
+    let v0 = convert_to_float();*/
     //for now, let's just give them values
-    //let height = 30.0;
-    //let theta: f32 = 3.14159265/6.0; //note: angles should be in radians
-    //let v0 = 20.0;
+    let height = 30.0;
+    let theta: f32 = 3.14159265/6.0; //note: angles should be in radians
+    let v0 = 20.0;
     let mut distance = -1.0; // the mut tells the program that its value will change
     let mut flight_time = -1.0; //I use the -1 value as a way to check whether the variable is reassigned later
 
@@ -32,6 +33,7 @@ fn main() {
     //for debugging purposes: print out variables
     //println!("xpoints = {:?}", x_points);
     //println!("ypoints = {:?}", y_points);
+    plot_path();
 }
 fn convert_to_float() -> f32 {
     let mut input_text = String::new();
