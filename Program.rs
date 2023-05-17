@@ -8,22 +8,18 @@ fn main() {
     let mut v0_for_most_d = 0.0;
 
     loop {
-        //prompt the user for a ceiling height, launch angle, and launch velocity
-        println!("Please enter a height in meters (press q to quit): ");
-        let height = convert_to_float(); //not needed unless I incorporate ceiling height
-
+        //prompt the user for a launch angle, and launch velocity
+        println!("Please enter an angle in degrees (press q to quit): ");
+        let degrees = convert_to_float();
         //check if we need to stop - happens when input isn't a float
-        if height == -1.0 {
+        if degrees == -1.0 {
             break
         }
 
-        println!("Please enter an angle in degrees: ");
-        let degrees = convert_to_float();
         let theta: f32 = degrees * 3.14159265 / 180.0; //converts the degrees into radians
         println!("Please enter a launching velocity in meters/second: ");
         let v0 = convert_to_float();
         /*//for now, let's just give them values
-        let height = 30.0;
         let theta: f32 = 3.14159265/6.0; //note: angles should be in radians
         let v0 = 20.0;*/
         let mut distance = -1.0; // the mut tells the program that its value will change
@@ -74,29 +70,8 @@ fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
     let angle = 2.0 * th;
     let xf = v * v * angle.sin() / g;
     
-    //println!("angle = {angle}");
-    println!("distance = {xf}");
     return xf 
 }
-/********** stretch goal: take the ceiling into account
-fn calculate_distance_with_ceiling(g: f32, y: f32, th: f32, v: f32) -> f32 {
-    println!("running calculate_distance_with_ceiling");
-    //calculate the farthest distance here
-    // the a, b, and c are from an equation explained in the README *****add it to the README********
-    let a = - 0.25 * g;
-    let b = v * th.cos() * th.sin();
-    let c =  - 2.0 * y * v * v * th.cos() * th.cos();
-    // something about sqrt: the thing you're taking a square root of needs explicitly be a float
-    let inside_sqrt: f32 = b*b - (4.0 * a * c);
-    //let positive = (-b + inside_sqrt.sqrt() ) / (2 * a);
-    //let negative = (-b - inside_sqrt.sqrt() ) / (2 * a);
-    // positive = (-b + sqrt(b*b - 4.0 * a * c) ) / (2 * a)
-    // negative = (-b - sqrt(b*b - 4.0 * a * c) ) / (2 * a) //shouldn't be a thing here
-
-    println!("a = {a} and b = {b} and c = {c}");
-    println!("inside the squre root = {inside_sqrt}");
-    return 5.4 //replace with calculated value later
-}*/
 
 fn calculate_flight_time(xf: f32, th: f32, v: f32) -> f32 {
     //equation from kinematic equation xf = xi + v0 * cos(theta) * t
