@@ -1,10 +1,11 @@
 # Overview
 
-{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
+I am working on learning the basics of Rust by writing software that solves a physics projectile motion problem. The purpose of this software is ultimately to become familiar with the syntax that Rust uses and to develop the skill of easily learning new languages.
 
-{Provide a description of the software that you wrote to demonstrate the Rust language.}
+This software first prompts the user for an angle and velocity that a projectile is launched at. It then calculates the horizontal distance that the projectile travels, as well as the time that the projectile is in the air. It also takes note of the greatest distance and the greatest time. This is significant because the software does all that is listed before many times, until the user enters "q" instead of a number. Once the user has entered "q", the software displays the farthest distance and the longest times.  
 
-{Describe your purpose for writing this software.}
+The physics used in this software is basic classical mechanics, particularly kinematics. This software ignores air drag and assumes that the inputted values are highly accurate. 
+
 
 {Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
@@ -19,8 +20,6 @@ If we combine these two equations of motion and solve for $x_f$, the horizontal 
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
 - [The Rust Programming Language](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html)
 - [Rust-Lang](https://doc.rust-lang.org/std/primitive.array.html)
 - [Rust By Example](https://doc.rust-lang.org/rust-by-example/flow_control/for.html)
@@ -29,8 +28,5 @@ If we combine these two equations of motion and solve for $x_f$, the horizontal 
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
+- Add a plotting function to display the trajectory of the projectile.
+- Add a maximum vertical distance as if the projectile were launched indoors and calculate the farthest horizontal distance taking that maximum vertical distance into account. 

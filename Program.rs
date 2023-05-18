@@ -18,15 +18,15 @@ fn main() {
         if degrees == -1.0 {
             break
         }
-
         let theta: f32 = degrees * 3.14159265 / 180.0; //converts the degrees into radians
+        
         println!("Please enter a launching velocity in meters/second: ");
         let v0 = convert_to_float();
 
         let mut distance = -1.0; // the mut tells the program that its value will change
         let mut flight_time = -1.0; //I use the -1 value as a way to check whether the variable is reassigned later
 
-        //calculate the farthest distance if there's no ceiling
+        //calculate the farthest distance if there is no ceiling
         distance = calculate_distance_no_ceiling(g, theta, v0);
 
         //check if this is the farthest distance so far
@@ -36,7 +36,6 @@ fn main() {
             deg_for_most_d = degrees;
         }
         
-
         //calculate flight time
         flight_time = calculate_flight_time(distance, theta, v0);
         
@@ -45,7 +44,8 @@ fn main() {
             v0_for_most_t = v0;
             deg_for_most_t = degrees;
         }
-        //plot the path if possible
+
+        //calcuate the path that the projectile travels if possible
         let x_points = calculate_x_path(theta, v0, flight_time);
         let y_points = calculate_y_path(theta, v0, flight_time, g);
 
@@ -60,7 +60,7 @@ fn convert_to_float() -> f32 {
     //reads the inputed text as a String
     io::stdin()
         .read_line(&mut input_text)
-        .expect("failed to read from stdin");
+        .expect("failed to read from stdin"); //if this happens, something is wrong
 
     //converts the String to a float
     let trimmed = input_text.trim();
@@ -72,7 +72,7 @@ fn convert_to_float() -> f32 {
 }
 fn calculate_distance_no_ceiling(g: f32, th: f32, v: f32) -> f32 {
     // the equation is explained in the README file
-    let angle = 2.0 * th;
+    let angle = 2.0 * th; //this is needed because the equation has sin(
     let xf = v * v * angle.sin() / g;
     
     return xf 
