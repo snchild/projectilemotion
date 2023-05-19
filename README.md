@@ -6,10 +6,7 @@ This software first prompts the user for an angle and velocity that a projectile
 
 The physics used in this software is basic classical mechanics, particularly kinematics. This software ignores air drag and assumes that the inputted values are highly accurate. 
 
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/gDld_-O5_C8)
 
 # Development Environment
 
@@ -30,3 +27,4 @@ If we combine these two equations of motion and solve for $x_f$, the horizontal 
 
 - Add a plotting function to display the trajectory of the projectile.
 - Add a maximum vertical distance as if the projectile were launched indoors and calculate the farthest horizontal distance taking that maximum vertical distance into account. 
+- Modify the convert_to_float function to return -1.0 if the user enters "q" and also displays an error message then prompts the user again if they enter something that is not a number or "q"
